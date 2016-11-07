@@ -61,6 +61,9 @@ p {
   border: 3px #333333 solid; }
 
 /*SECTIONS*/
+.navbar a {
+  color: white; }
+
 .main {
   /*font-size: 8vw;*/
   font-family: "Montserrat", Helvetica, sans-serif;
@@ -76,31 +79,21 @@ p {
   padding: 20px 0; }
 
 .paragraphs {
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin: 30px 0;
   color: #333333; }
 
-.about {
-  min-height: 60%;
-  width: 100%;
-  color: #702e5f;
-  margin: 0 0 20px 0; }
+.title {
+  background: #702e5f;
+  color: white; }
 
-.about .about-element {
-  padding: 40px 0px; }
-
-.about-element .fa {
-  margin: 0 0 30px 0; }
-
-.about .description {
-  font-style: italic;
-  color: #333333;
-  line-height: 0.2; }
+.about-element {
+  color: white; }
 
 .portfolio {
-  background: #ffc14d;
+  background: white;
   padding: 20px 0;
-  color: white; }
+  color: #ffc14d; }
 
 .portfolio img {
   margin: 15px; }
