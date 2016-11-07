@@ -102,8 +102,12 @@ p {
   font-size: 2rem;
   // text-align: justify;
   margin: 30px 0;
-  color: $dark-grey;
+  color: white;
 }
+a .fa-angle-double-down{
+	color: white;
+}
+
 
 .title{
   background: $aubergine;
@@ -114,15 +118,30 @@ p {
 }
 .portfolio{
   background: white;
-  padding: 20px 0;
 	color: $bright-orange;
+	min-height: auto;
+	margin: 120px 0 30px 0;
 }
 .portfolio img{
   margin: 15px;
-
 }
+
 .contacts{
-	color:  $aubergine;
+	min-height: auto;
+	padding: 80px 0;
+	background: $aubergine;
+}
+.contact-me{
+	color: white;
+}
+.fa-4x{
+	margin: 0 20px;
+}
+.social a{
+	color: white;
+}
+.social a:hover{
+	color: $bright-orange;
 }
 
 footer{
