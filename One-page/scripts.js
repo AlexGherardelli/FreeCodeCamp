@@ -1,4 +1,3 @@
-for (var i = 0; i < 6; i++){
-  var width = 400;
-  var height = 200;
-}
+var width = 400;
+var height = 200;
+$('.portfolio-picture').append('<img src="http://www.lorempixel.com/'+width+'/'+height+'/abstract" alt="image">');
