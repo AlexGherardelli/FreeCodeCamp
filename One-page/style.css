@@ -51,14 +51,14 @@ p {
   margin: 0px 20px 40px 20px;
   font-size: 1.2rem;
   background: transparent;
-  border: 3px #333333 solid;
-  color: #333333;
+  border: 3px #702e5f solid;
+  color: #702e5f;
   /*font-weight: bold;*/ }
 
 .btn:hover {
   color: white;
-  background: #333333;
-  border: 3px #333333 solid; }
+  background: #702e5f;
+  border: 3px #702e5f solid; }
 
 /*SECTIONS*/
 .navbar a {
@@ -97,15 +97,23 @@ a .fa-angle-double-down {
   background: white;
   color: #ffc14d;
   min-height: auto;
-  margin: 120px 0 30px 0; }
+  margin: 30px 0 30px 0; }
 
 .portfolio img {
   margin: 15px; }
 
+.thumbnail {
+  border: 5px #702e5f solid;
+  padding: 0; }
+
+.description {
+  color: #702e5f;
+  font-weight: bold; }
+
 .contacts {
   min-height: auto;
   padding: 80px 0;
-  background: #702e5f; }
+  background: #ffc14d; }
 
 .contact-me {
   color: white; }
