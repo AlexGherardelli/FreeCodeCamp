@@ -129,10 +129,12 @@ a .fa-angle-double-down{
 	border: 5px $aubergine solid;
 	padding: 0;
 }
+#projects{
+	color: $aubergine;
+}
 .description{
 	color: $aubergine;
 	font-weight: bold;
-	
 }
 .contacts{
 	min-height: auto;
@@ -149,7 +151,7 @@ a .fa-angle-double-down{
 	color: white;
 }
 .social a:hover{
-	color: $bright-orange;
+	color: $aubergine;
 }
 
 footer{

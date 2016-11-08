@@ -106,6 +106,9 @@ a .fa-angle-double-down {
   border: 5px #702e5f solid;
   padding: 0; }
 
+#projects {
+  color: #702e5f; }
+
 .description {
   color: #702e5f;
   font-weight: bold; }
@@ -125,7 +128,7 @@ a .fa-angle-double-down {
   color: white; }
 
 .social a:hover {
-  color: #ffc14d; }
+  color: #702e5f; }
 
 footer {
   background: #333333;
