@@ -14,6 +14,7 @@ html, body{
 	line-height: 1.6;
 }
 .quote{
+	min-height: 200px;
 	font-style: italic;
 }
 .author{

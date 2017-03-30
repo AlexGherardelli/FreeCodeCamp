@@ -21,7 +21,7 @@ function makeRequest(method, url){
 function renderHTML(data){
     var joke = data.value['joke']; 
     var HTMLstring = "<p>" + joke + "</p>";
-    quote.insertAdjacentHTML("beforeend", HTMLstring);
+    quote.innerHTML = HTMLstring;
 }
 
 
