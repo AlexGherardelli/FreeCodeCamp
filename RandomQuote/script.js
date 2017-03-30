@@ -2,23 +2,24 @@
 var count = 0;
 var btn = document.querySelector(".btn");
 var quote = document.querySelector(".quote")
+var tweet = document.querySelector(".twitter-share-button");
 
 
 btn.addEventListener('click', function() {
-makeRequest('GET', "http://api.icndb.com/jokes/random");
+makeRequest('GET', "https://api.icndb.com/jokes/random");
 });
 
 if(count < 1){
-    makeRequest('GET', "http://api.icndb.com/jokes/random");
+    makeRequest('GET', "https://api.icndb.com/jokes/random");
     count++;
 }
 
 function makeTweetUrl(quoteString){
-    var spl = quoteString.split(" ");
+    var spl = "";
+    spl = quoteString.split(" ");
     spl = spl.join("%20");
-    var tweet = document.querySelector(".twitter-share-button");
-    var tweetURL = tweet.href + "?text=" + spl + "&hashtags=FreeCodeCamp";
-    return tweet.href = tweetURL;
+    var tweetURL = 'https://twitter.com/intent/tweet?text=' + spl + "&hashtags=FreeCodeCamp";
+    tweet.href = tweetURL;
 }
 
 
