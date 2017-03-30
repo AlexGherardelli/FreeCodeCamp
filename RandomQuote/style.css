@@ -7,14 +7,20 @@ html, body{
 	padding: 0;
 	font-family: "Lora", serif;
 	color: #333;
+	background: #72bcd4;
 }
 
 .container{
-	margin: 10% 30%;
+	background: white;
+	margin: 10% 25%;
+	padding: 30px;
 	line-height: 1.6;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px #555;
 }
 .quote{
-	min-height: 200px;
+
+	min-height: 130px;
 	font-style: italic;
 }
 .author{
@@ -22,19 +28,21 @@ html, body{
 	font-weight: bold;
 }
 .btn{
-	margin: 20px 0;
+	margin: 20px 50px 20px 0;
 	width: 200px;
 	height: 50px;
 	color: white;
-	border-radius: 0;
-	background-color: #00688b;
+	border-radius: 5px;
+	background-color: #008ebe;
 	border: 0;
 	font-size: .8rem;
 	font-family: "Roboto", sans-serif;
-	float: right;
+}
+p{
+	margin: 0 30px;
 }
 .btn:hover, .btn:active{
-	background-color: #008ebe;
+	background-color: #72bcd4; 
 }
 .hide{
 	display: none;
