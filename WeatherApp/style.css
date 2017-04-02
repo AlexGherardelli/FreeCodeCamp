@@ -12,16 +12,21 @@ html, body {
 }
 
 .container {
-    margin: 5% 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 h1{
 	font-weight: 700;
 	text-align: center;
   color: #008ebe;
 }
+p{
+  padding: 0 10px;
+}
 .location-info, .weather-info {
 	display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 .info{
   font-weight: 400;
@@ -41,4 +46,17 @@ h1{
 }
 .btn:hover, .btn:active{
 	background-color: #72bcd4;
+}
+
+/* Media queries for medium to small screens */
+@media screen and (max-width: 600px){
+  html, body{
+    font-size: 18px;
+  }
+
+  .location-info, .weather-info{
+      flex-direction: column;
+      align-content: center;
+      text-align: center;
+  }
 }
