@@ -5,9 +5,11 @@ function makeRequest(method, url, callback){
 	request.onload = function(){
 		if(request.status >= 200 && request.status < 400){
 			var response = JSON.parse(request.responseText);
+			console.log(response);
 			callback(response);
 		}
 		else{
+			response = JSON.parse(request.responseText);
 			console.warn("Error in dealing with request");
 		}
 	};
@@ -19,17 +21,15 @@ function makeRequest(method, url, callback){
 
 // PART 1:  Get location from location api and insert it into location paragraph
 var loc = document.getElementById('location')
+var weather = document.getElementById('weather');
 
-function getLocation(data){
-	var city = data.city;
-	var country = data.country;
-	var countryCode = data.countryCode;
+function renderLocation(data){
 	loc.innerHTML = data.city + ", " + data.country;
-	return city, country, countryCode;
-
+	window.city = data.city;
+	window.country = data.countryCode;
 }
 
-makeRequest('GET', 'http://ip-api.com/json', getLocation);
+makeRequest('GET', 'http://ip-api.com/json', renderLocation);
 // PART 2: Get weather from weather api
 
 // http://api.openweathermap.org/data/2.5/weather?lon=12.5625636&lat=41.8904607&APPID=c5b044125cc6167916e2fa491f733c39
@@ -37,11 +37,14 @@ makeRequest('GET', 'http://ip-api.com/json', getLocation);
 function makeURL(){
 	var url = "http://api.openweathermap.org/data/2.5/weather?q=";
 	var apiKey = "c5b044125cc6167916e2fa491f733c39";
-	url += city + "," + countryCode + "&APPID" + apiKey;
+	url += window.city + "," + window.country+ "&APPID=" + apiKey;
 	return url;
 }
+function renderWeather(data){
+	weather.innerHTML = data.main.temp + ", " + data.weather[0].main + ", " + data.name;
+}
 // Insert weather into weather paragraph
-var weather = document.getElementById('weather');
+makeRequest("GET", makeURL(), renderWeather);
 // PART 3: Convert celsius to farenheit (and viceversa)
 
 // Toggle button
