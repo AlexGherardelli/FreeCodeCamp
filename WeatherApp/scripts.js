@@ -2,10 +2,12 @@
 function makeRequest(method, url, callback){
 	var request = new XMLHttpRequest();
 	request.open(method, url);
+	console.log(url);
+		request.send();
 	request.onload = function(){
 		if(request.status >= 200 && request.status < 400){
 			var response = JSON.parse(request.responseText);
-			console.log(response);
+			// console.log(response);
 			callback(response);
 		}
 		else{
@@ -34,17 +36,15 @@ makeRequest('GET', 'http://ip-api.com/json', renderLocation);
 
 // http://api.openweathermap.org/data/2.5/weather?lon=12.5625636&lat=41.8904607&APPID=c5b044125cc6167916e2fa491f733c39
 // http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=c5b044125cc6167916e2fa491f733c39
-function makeURL(){
-	var url = "http://api.openweathermap.org/data/2.5/weather?q=";
-	var apiKey = "c5b044125cc6167916e2fa491f733c39";
-	url += window.city + "," + window.country+ "&APPID=" + apiKey;
-	return url;
-}
+var apiKey = "c5b044125cc6167916e2fa491f733c39";
+var url = "http://api.openweathermap.org/data/2.5/weather?q=" + "Rome" + "," + "IT "+ "&APPID=" + apiKey;
+
 function renderWeather(data){
-	weather.innerHTML = data.main.temp + ", " + data.weather[0].main + ", " + data.name;
+	console.log(data);
+	weather.innerHTML = data.main.temp + ", " + data.weather[0].main ;
 }
 // Insert weather into weather paragraph
-makeRequest("GET", makeURL(), renderWeather);
+makeRequest("GET", url, renderWeather);
 // PART 3: Convert celsius to farenheit (and viceversa)
 
 // Toggle button
