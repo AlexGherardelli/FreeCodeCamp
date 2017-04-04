@@ -23,25 +23,38 @@ function makeRequest(method, url, callback){
 
 // PART 1:  Get location from location api and insert it into location paragraph
 var loc = document.getElementById('location')
+var temp = document.getElementById("temp");
 var weather = document.getElementById('weather');
+var btn = document.querySelector("button");
 var apiKey = "c5b044125cc6167916e2fa491f733c39";
 
 // PART 2: GET LOCATION AND WEATHER DATA AND INSERT INTO PARAGRAPHS
 function renderWeather(data){
 	temp.innerHTML = data.main.temp;
-	weather.innerHTML = "- " + data.weather[0].main ;
+	weather.innerHTML = " - " + data.weather[0].main ;
 }
 
 function renderHTML(data){
 	loc.innerHTML = data.city + ", " + data.country;
-	var url = "http://api.openweathermap.org/data/2.5/weather?q=" + data.city + "," + data.country + "&APPID=" + apiKey;
-	// console.log(url);
+	var url = "http://api.openweathermap.org/data/2.5/weather?q=" + data.city + "," + data.country +  "&units=metric" + "&APPID=" + apiKey;
+	console.log(url);
 	makeRequest('GET', url, renderWeather);
 }
 
 makeRequest('GET', 'http://ip-api.com/json', renderHTML);
 
 // PART 3: Convert celsius to farenheit (and viceversa)
+btn.addEventListener("click", function(){
+		if(btn.textContent == "Change to Celsius"){
+			btn.textContent = "Change to Farenheit";
+			temp.textContent = (temp.textContent - 32)/1.8;
+		}
+		else{
+			btn.textContent = "Change to Celsius";
+			temp.textContent = temp.textContent * 1.8 + 32
+		}
+});
+
 
 // Toggle button
 
