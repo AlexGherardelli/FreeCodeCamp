@@ -30,7 +30,7 @@ var apiKey = "c5b044125cc6167916e2fa491f733c39";
 
 // PART 2: GET LOCATION AND WEATHER DATA AND INSERT INTO PARAGRAPHS
 function renderWeather(data){
-	temp.innerHTML = data.main.temp;
+	temp.innerHTML = data.main.temp + "°";
 	weather.innerHTML = " - " + data.weather[0].main ;
 }
 
