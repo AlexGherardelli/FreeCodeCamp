@@ -24,6 +24,10 @@ h1{
 p{
   padding: 0 10px;
 }
+#icon{
+ min-width: 60px;
+  height: 60px;
+}
 .location-info, .weather-info {
 	display: flex;
   justify-content: center;

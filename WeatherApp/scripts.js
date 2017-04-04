@@ -27,17 +27,22 @@ var temp = document.getElementById("temp");
 var weather = document.getElementById('weather');
 var btn = document.querySelector("button");
 var apiKey = "c5b044125cc6167916e2fa491f733c39";
+var icon = document.getElementById("icon")
+
 
 // PART 2: GET LOCATION AND WEATHER DATA AND INSERT INTO PARAGRAPHS
 function renderWeather(data){
-	temp.innerHTML = data.main.temp + "°";
+	temp.innerHTML = data.main.temp;
 	weather.innerHTML = " - " + data.weather[0].main ;
+
+	// http://openweathermap.org/img/w/10d.png
+	icon.src = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
 }
 
 function renderHTML(data){
 	loc.innerHTML = data.city + ", " + data.country;
 	var url = "http://api.openweathermap.org/data/2.5/weather?q=" + data.city + "," + data.country +  "&units=metric" + "&APPID=" + apiKey;
-	console.log(url);
+	// console.log(url);
 	makeRequest('GET', url, renderWeather);
 }
 
