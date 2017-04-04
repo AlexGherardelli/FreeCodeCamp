@@ -2,8 +2,7 @@
 function makeRequest(method, url, callback){
 	var request = new XMLHttpRequest();
 	request.open(method, url);
-	console.log(url);
-		request.send();
+	// console.log(url);
 	request.onload = function(){
 		if(request.status >= 200 && request.status < 400){
 			var response = JSON.parse(request.responseText);
@@ -21,30 +20,27 @@ function makeRequest(method, url, callback){
 	request.send();
 }
 
+
 // PART 1:  Get location from location api and insert it into location paragraph
 var loc = document.getElementById('location')
 var weather = document.getElementById('weather');
-
-function renderLocation(data){
-	loc.innerHTML = data.city + ", " + data.country;
-	window.city = data.city;
-	window.country = data.countryCode;
-}
-
-makeRequest('GET', 'http://ip-api.com/json', renderLocation);
-// PART 2: Get weather from weather api
-
-// http://api.openweathermap.org/data/2.5/weather?lon=12.5625636&lat=41.8904607&APPID=c5b044125cc6167916e2fa491f733c39
-// http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=c5b044125cc6167916e2fa491f733c39
 var apiKey = "c5b044125cc6167916e2fa491f733c39";
-var url = "http://api.openweathermap.org/data/2.5/weather?q=" + "Rome" + "," + "IT "+ "&APPID=" + apiKey;
 
+// PART 2: GET LOCATION AND WEATHER DATA AND INSERT INTO PARAGRAPHS
 function renderWeather(data){
-	console.log(data);
-	weather.innerHTML = data.main.temp + ", " + data.weather[0].main ;
+	temp.innerHTML = data.main.temp;
+	weather.innerHTML = "- " + data.weather[0].main ;
 }
-// Insert weather into weather paragraph
-makeRequest("GET", url, renderWeather);
+
+function renderHTML(data){
+	loc.innerHTML = data.city + ", " + data.country;
+	var url = "http://api.openweathermap.org/data/2.5/weather?q=" + data.city + "," + data.country + "&APPID=" + apiKey;
+	// console.log(url);
+	makeRequest('GET', url, renderWeather);
+}
+
+makeRequest('GET', 'http://ip-api.com/json', renderHTML);
+
 // PART 3: Convert celsius to farenheit (and viceversa)
 
 // Toggle button
