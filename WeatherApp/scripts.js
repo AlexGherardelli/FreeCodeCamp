@@ -59,33 +59,3 @@ btn.addEventListener("click", function(){
 			temp.textContent = temp.textContent * 1.8 + 32
 		}
 });
-
-
-// Toggle button
-
-// PART 4: Insert icon depending on weather
-
-
-
-// if("geolocation" in navigator){
-//   navigator.geolocation.getCurrentPosition(geoSuccess, geoError, options);
-// }
-// else{
-//   console.warn("Navigation not present");
-// }
-//
-//
-// function geoSuccess(pos){
-//   var coord = pos.coords;
-//   console.log("Your current position is: ");
-//   console.log("Latitude: " + coord.latitude);
-//   console.log("Longitude: " + coord.longitude);
-// }
-//
-// function geoError(err){
-//   console.warn("Error! " + err.message);
-// }
-//
-// var options = {
-//   enableHighAccuracy: true
-// };
