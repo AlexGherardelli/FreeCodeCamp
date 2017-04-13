@@ -21,9 +21,12 @@ function renderHTML(data){
 	response = data;
 	var wiki = document.querySelector(".wikipedia");
 	console.log(wiki);
+  while (wiki.firstChild) {
+  wiki.removeChild(wiki.firstChild);
+  }
 	for (var i = 0; i < data.query.search.length; i++) {
-		console.log("Writing data n: " + [i]);
-		var entry = "<div class='entry'><h2>" + data.query.search[i].title + "</h2><p class='snippet'>" + data.query.search[i].snippet + "</p></div>";
+    var link = "<a href='http://wikipedia.org/wiki/" + data.query.search[i].title.split(" ").join("_") + "' target='_blank'>";
+		var entry = link + "<div class='entry'><h2>"+ data.query.search[i].title + "</h2><p class='snippet'>" + data.query.search[i].snippet + "</p></div> </a>";
 		wiki.insertAdjacentHTML("beforeend", entry);
 	}
 
@@ -44,8 +47,3 @@ submit.addEventListener("click", function(){
 
 	makeRequest("GET", url, renderHTML);
 });
-
-
-
-
-	

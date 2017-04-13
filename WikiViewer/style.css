@@ -18,7 +18,10 @@ h1{
   font-weight: 300;
 
 }
-
+a{
+  text-decoration: none;
+  color: white;
+}
 .input-box{
     flex-direction: row;
 }
