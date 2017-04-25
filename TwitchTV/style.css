@@ -1,0 +1,52 @@
+html, body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family:"Raleway", sans-serif;
+  background: #1c262f;
+
+}
+.container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+.twitch{
+  background: white;
+  height:600px;
+  width: 80%;
+  border-radius: 2%;
+}
+.twitch h1{
+  text-align:center;
+}
+.twitch p{
+  margin: 0 20px;
+  display: inline-block;
+}
+.element{
+  height: 20%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+.offline{
+  background: #75867b;
+  opacity: 0.9;
+}
+.online{
+background: #31ca65;
+opacity: 0.9;
+}
+.inexistent{
+  font-style: italic;
+  color: #75867b;
+}
+hr{
+  border: 0.5px solid #ccc;
+  width: 80%;
+}
