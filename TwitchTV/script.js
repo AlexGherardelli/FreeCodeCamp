@@ -1,4 +1,4 @@
-var a = [
+var channels = [
   {
     "stream": {
       "mature": false,
@@ -101,3 +101,19 @@ var a = [
     "message": "Channel 'not-a-valid-account' does not exist"
   }
 ];
+
+var twitch = document.querySelector(".twitch");
+
+for(var i = 0; i < channels.length; i++){
+  if(channels[i].hasOwnProperty("stream")){
+      if(channels[i].stream == null){
+        twitch.insertAdjacentHTML(        <div class="element inexistent">
+                  <p>Inexistent Channel</p>
+                </div>
+      }
+  }
+  else{
+    var inexistent = document.querySelector(".inexistent");
+    inexistent.insertAdjacentHTML("<p> Channel not found </p>");
+  }
+}
