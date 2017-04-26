@@ -16,9 +16,12 @@ html, body{
 }
 .twitch{
   background: white;
-  height:600px;
-  width: 80%;
   border-radius: 2%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 80%;
+
 }
 .twitch h1{
   text-align:center;

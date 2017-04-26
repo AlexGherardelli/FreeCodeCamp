@@ -1,4 +1,4 @@
-var a = [
+var channels = [
   {
     "stream": {
       "mature": false,
@@ -101,3 +101,25 @@ var a = [
     "message": "Channel 'not-a-valid-account' does not exist"
   }
 ];
+
+
+var twitch = document.querySelector(".twitch");
+var htmlString = "";
+
+for (var i = 0; i < channels.length; i++) {
+  if(channels[i].hasOwnProperty("stream")){
+    if(channels[i].stream != null){
+      htmlString = "<div class='element online'><p>" + channels[i].stream.display_name + "</p></div>";
+      twitch.insertAdjacentHTML("beforeEnd", htmlString);
+
+    }
+    else{
+      htmlString = "<div class='element offline'><p>" + channels[i].display_name + "</p></div>";
+      twitch.insertAdjacentHTML("beforeEnd", htmlString);
+      console.log(channels[i].display_name);
+
+    }
+  }
+  else{
+    twitch.insertAdjacentHTML('beforeEnd', "<div class='element inexistent'><p>Channel not found</p> </div>"); }
+  }
