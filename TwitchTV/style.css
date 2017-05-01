@@ -8,7 +8,7 @@ html, body{
 
 }
 .container{
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -32,8 +32,8 @@ html, body{
 }
 .element{
     color: white;
-    font-weight: bold;
-    height: 20%;
+    /*font-weight: bold;*/
+    min-height: 100px;
     display: flex;
     flex-flow: column;
     justify-content: center;
@@ -49,6 +49,10 @@ html, body{
 .online{
 background: #31ca65;
 opacity: 0.9;
+display: flex;
+flex-flow: row;
+min-height: 100px;
+
 }
 .inexistent{
   font-style: italic;

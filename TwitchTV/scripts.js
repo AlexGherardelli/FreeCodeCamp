@@ -37,11 +37,12 @@ function getData(method, url, callback) {
 function updateUsers(data) {
     // if users are not streaming
     if (data.stream == null) {
-        // updates offline users
+        // updates offline users - username is extracted from link data
         updateOfflineUsers(data._links.channel.substr(38));
     } else {
-        html = "<div class='element online'><p>" + data.stream.channel.status + "</p>" +
-            "<p>" + data.stream.game + "</p></div>";
+      console.log(data.stream);
+        html = "<div class='element online'><p>" + data.stream.channel.display_name + "</p><p>"+ data.stream.game + "</p><p>" +
+        data.stream.channel.status + "</p></div>";
         twitch.insertAdjacentHTML("beforeEnd", html);
     }
 }
@@ -54,7 +55,7 @@ function updateOfflineUsers(username) {
 	getData("GET", url, function(data){
 		// console.log(data);
 		if(data.status === 404){
-			twitch.insertAdjacentHTML('beforeEnd', "<div class='element inexistent'><p> User"+ username + " was not found </p> </div>");
+			twitch.insertAdjacentHTML('beforeEnd', "<div class='element inexistent'><p>"+ username + " was not found </p> </div>");
 		}
 		else{
       html = "<div class='element offline'><p>" + username +  " is currently offline</p></div>";
