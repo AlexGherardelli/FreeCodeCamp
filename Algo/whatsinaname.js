@@ -9,8 +9,7 @@ function whatIsInAName(collection, source) {
   collection.filter(function(obj){
     for (var i = 0; i < keys.length; i++) {
       if(obj.hasOwnProperty(keys[i]) || obj[keys[i]] === source[keys[i]]){
-        console.log(source);
-        console.log(obj);
+thi           console.log(obj);
           return true;
       }
       return false;
