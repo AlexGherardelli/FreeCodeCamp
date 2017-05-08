@@ -19,3 +19,5 @@ function translatePigLatin(str) {
 }
 
 translatePigLatin("california");
+
+console.log("Hello");
