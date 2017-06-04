@@ -1,4 +1,3 @@
-
 function smallestCommons(arr) {
   // calculate great common divisor
   function gcd(a, b){
@@ -27,5 +26,3 @@ console.log(gdc);
   console.log(a/gdc);
 
 }
-
-smallestCommons([3, 5]);
