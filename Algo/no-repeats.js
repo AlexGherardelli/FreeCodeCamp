@@ -3,16 +3,7 @@ function permAlone(str) {
 
   var str = str.split("");
 
-  // function swap(a, b){
-  // 	var temp = a;
-  // 	a = b;
-  // 	b = temp;
-  // 	return [a, b];
-  // 	}
-
-  //   console.log(swap(1, 2));
   var permuted = [];
-
   function generate(n, array) {
   if (n === 1) {
       permuted.push(array.join(""));
@@ -39,7 +30,16 @@ function permAlone(str) {
   }
 }
   generate(str.length, str);
-  console.log(permuted);
+
+  
+
+
+  var regex = /(.)\1+/gi;
+  var noRepeats = permuted.filter(function(e){
+    return !e.match(regex);
+  });
+
+  return  noRepeats.length;
 
 }
 
