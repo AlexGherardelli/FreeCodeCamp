@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald:300,400');
 
-
-
-
 *{
 	box-sizing: border-box;
 }
@@ -22,6 +19,22 @@ html, body{
 	text-align: center;
 	color: #376996;
 /*#4A8FE7; United Nations blue*/
+}
+button{
+    text-align: center;
+    cursor: default;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: white;
+    box-sizing: border-box;
+    padding: 0;
+    border-width: 0;
+  }
+
+button:focus, button:active{
+  outline: 0px;
+
 }
 
 .calc{
@@ -87,7 +100,7 @@ html, body{
 }
 .double{
 	width: 40%;
-	border-radius: 10%;
+  border-radius: 5%;
 }
 .double-height{
 	height: 80px;
