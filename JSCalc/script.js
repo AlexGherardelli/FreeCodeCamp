@@ -67,6 +67,9 @@ $(document).ready(function() {
   $('#divide').click(function() {
     result.text(result.text() + "/");
   });
+	$('#comma').click(function(){
+		result.text(result.text() + ".");
+	})
 // equal evaluate an expression
   $('#equal').click(function() {
     calc(result.text());
@@ -75,6 +78,7 @@ $(document).ready(function() {
 
   // Concatenate numbers and operators with keypress
   $(document).keypress(function(e) {
+		console.log(e.which);
     switch (e.which) {
       case 13:
         calc(result.text());
