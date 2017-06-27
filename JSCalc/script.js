@@ -5,11 +5,7 @@ $(document).ready(function() {
         $(".result").text("");
     });
 
-    // Add numbers to display if pressed consecutively
-    // if ($(".result").text().length > 20){
-    // 	console.log("Too long");
-    // }
-
+     // Concatenate numbers on screen
     $('#zero').click(function() {
         $('.result').text($('.result').text() + 0);
     });
@@ -40,6 +36,29 @@ $(document).ready(function() {
     $('#9').click(function() {
         $('.result').text($('.result').text() + 9);
     });
+
+    // Concatenate operators
+    $('#plus').click(function(){
+    	console.log("plus");
+    	$('.result').text($('.result').text() + "+");
+    });
+        $('#minus').click(function(){
+    	console.log("plus");
+    	$('.result').text($('.result').text() + "+");
+    });
+
+    $('#multiply').click(function(){
+    	console.log("plus");
+    	$('.result').text($('.result').text() + "+");
+    });
+
+    $('#plus').click(function(){
+    	console.log("plus");
+    	$('.result').text($('.result').text() + "+");
+    });
+
+
+
 
 
 });
