@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css?family=Chelsea+Market');
+
+html, body{
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: "Chelsea Market", cursive;
+  background-color: #db2a0f;
+  color: white;
+  font-size: 21px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.pomodoro{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.timer, .break{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.time{
+  font-size: 3rem;
+}
+.btn{
+  height: 52px;
+  width: 52px;
+  border: 0;
+  background: transparent;
+  color: white;
+  font-size: 1.5rem;
+  margin: 0 20px;
+}
+.switch-btn{
+    border-radius: 0%;
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  font-size: 1.5rem;
+  padding: 0 20px;
+margin: 0 -5px;
+}
+}
+.hidden{
+  display: none;
+}
