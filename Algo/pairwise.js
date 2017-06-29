@@ -1,5 +1,4 @@
 
-
 function pairwise(arr, arg) {
 
   var sum = 0;
