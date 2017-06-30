@@ -6,11 +6,11 @@ $(document).ready(function() {
     var $play = $(".fa-play");
     var $pause = $(".fa-pause");
     var $stop = $(".fa-stop");
+    var $break_time = $('.break-time');
 
-    var session_timer = 25;
-    var break_timer = 5;
-    var seconds = 0;
 
+    var session_minutes = 25;
+    var break_minutes = 5;
 
     // Select between Break and Session
     $break.click(function() {
@@ -22,7 +22,6 @@ $(document).ready(function() {
 
     $session.click(function() {
         $(".break").addClass("hidden");
-        console.log($(".break"));
         $(".timer").removeClass("hidden");
         $session.addClass("whiten");
         $break.removeClass("whiten");
@@ -30,30 +29,30 @@ $(document).ready(function() {
 
     // Add minutes to session or break timer
     $('.session-minus').click(function() {
-        session_timer--;
-        if (session_timer < 1) {
-            session_timer = 1;
+        session_minutes--;
+        if (session_minutes < 1) {
+            session_minutes = 1;
         }
-        $('.session-time').html(session_timer + ":00");
+        $('.session-time').html(session_minutes);
     });
     $('.session-plus').click(function() {
-        session_timer++;
-        $('.session-time').html(session_timer + ":00");
+        session_minutes++;
+        $('.session-time').html(session_minutes);
 
     });
-    $('.session-time').html(session_timer + ":00");
-    $('.break-time').html(break_timer + ":00");
+    $('.session-time').html(session_minutes + ":00");
+    $('.break-time').html(break_minutes + ":00");
 
     $('.break-minus').click(function() {
-        break_timer--;
-        if (break_timer < 1) {
-            break_timer = 1;
+        break_minutes--;
+        if (break_minutes < 1) {
+            break_minutes = 1;
         }
-        $('.break-time').html(break_timer + ":00");
+        $('.break-time').html(break_minutes + ":00");
     });
     $('.break-plus').click(function() {
-        break_timer++;
-        $('.break-time').html(break_timer + ":00");
+        break_minutes++;
+        $('.break-time').html(break_minutes + ":00");
     });
 
 
@@ -62,7 +61,7 @@ $(document).ready(function() {
         $pause.removeClass("hidden");
         $play.addClass("hidden");
         $('.btn').addClass("hidden");
-        startTimer();
+        startTimer(session_minutes, $('.session-time'));
     });
 
     $pause.click(function() {
@@ -77,13 +76,24 @@ $(document).ready(function() {
     });
 
 
-    function startTimer() {
-        console.log("Timer starter, counting down!");
-        session_timer = $('.session-time').text();
-        console.log(session_timer);
+    function startTimer(duration, display) {
+				var timer = duration, minutes, seconds;
+				setInterval(function () {
+				minutes = parseInt(timer / 60, 10)
+				seconds = parseInt(timer % 60, 10);
 
+				minutes = minutes < 10 ? "0" + minutes : minutes;
+				seconds = seconds < 10 ? "0" + seconds : seconds;
 
+				display.textContent = minutes + ":" + seconds;
+
+				if (--timer < 0) {
+				timer = duration;
+				}
+				}, 1000);
     }
+
+
     function stopTimer(){
     	console.log("Timer stopped!");
     }
