@@ -2,29 +2,36 @@
 <html>
   <head>
     <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pomodoro Clock</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <div class="buttons">
-      <button class="switch-btn">Session</button>
-      <button class="switch-btn">Break</button>
+      <button class="switch-btn whiten" id="session-btn">Session</button>
+      <button class="switch-btn" id="break-btn">Break</button>
     </div>
     <div class="pomodoro">
       <div class="timer">
-        <button class="btn" >-</button>
-        <p class="time">25.00</p>
-        <button class="btn" >+</button>
+        <button class="btn session-minus" >-</button>
+        <p class="session-time time"></p>
+        <button class="btn session-plus" >+</button>
       </div>
-      <div class="break hidden">
-        <button class="btn" >-</button>
-        <p class="time">5.00</p>
-        <button class="btn" >+</button>
+      <div class="break hidden "> <button class="btn break-minus" >-</button>
+        <p class="break-time time"></p>
+        <button class="btn break-plus" >+</button>
       </div>
-
     </div>
-
-<script src="script.js"></script>
+    <div class="buttons">
+      <i class="fa fa-stop fa-2x" aria-hidden="true"></i>
+      <i class="fa fa-play fa-2x" aria-hidden="true"></i>
+      <i class="fa fa-pause fa-2x hidden" aria-hidden="true"></i>
+    </div>
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <script src="script.js"></script>
   </body>
 </html>
