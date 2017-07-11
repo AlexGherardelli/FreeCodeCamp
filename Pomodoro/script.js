@@ -9,8 +9,9 @@ $(document).ready(function() {
     var break_timer = $('.break-time');
     var display = $('.session-time');
 
-    var session_minutes = 25;
-    var seconds = 0;
+    // var session_minutes = 25;
+    var session_minutes = 0; //testing timer
+    var seconds = 10;
     var break_minutes = 5;
 
     var timer;
@@ -18,10 +19,7 @@ $(document).ready(function() {
 
     // Select between Break and Session
     break_btn.click(function() {
-        $(".timer").addClass("hidden");
-        $(".break").removeClass("hidden");
-        break_btn.addClass("whiten");
-        session_btn.removeClass("whiten");
+        seeBreak();
     });
 
     session_btn.click(function() {
@@ -66,10 +64,11 @@ $(document).ready(function() {
         pause.removeClass("hidden");
         play.addClass("hidden");
         $('.btn').addClass("hidden");
-        console.log(session_minutes)
         var duration = (session_minutes * 60) + seconds;
         timer = duration;
         startTimer(duration, timer);
+
+        console.log(timer);
 });
 
     pause.click(function() {
@@ -94,7 +93,7 @@ $(document).ready(function() {
 
     function startTimer(duration, timer) {
       time = setInterval(function() {
-          session_minutes = parseInt(timer / 60, 10);
+          minutes = parseInt(timer / 60, 10);
           seconds = parseInt(timer % 60, 10);
 
           seconds = seconds < 10 ? "0" + seconds : seconds;
@@ -102,17 +101,21 @@ $(document).ready(function() {
           display.text(session_minutes + ":" + seconds);
           if (--timer < 0) {
               timer = duration;
+              clearInterval(timer);
+             seeBreak();
+              $("body").css("background-color", "#008040");
+             $(".whiten").css("color", "#008040");
+             startTimer() 
           }
+
       }, 1000);
     }
-
-
-    function stopTimer(){
-    	display.text("KABOOM");
-
+    function seeBreak(){
+        $(".timer").addClass("hidden");
+        $(".break").removeClass("hidden");
+        break_btn.addClass("whiten");
+        session_btn.removeClass("whiten");
     }
-    function pauseTimer(){
-    	console.log("Timer in pause");
-    }
+
 
 });
