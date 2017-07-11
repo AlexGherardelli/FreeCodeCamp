@@ -63,24 +63,32 @@ $(document).ready(function() {
 
     // Set functionality for play, pause and stop
     play.click(function() {
-        // pause.removeClass("hidden");
-        // play.addClass("hidden");
+        pause.removeClass("hidden");
+        play.addClass("hidden");
         $('.btn').addClass("hidden");
-        var duration = session_minutes * 60;
-        timer = duration,
-            session_minutes, seconds;
+        console.log(session_minutes)
+        var duration = (session_minutes * 60) + seconds;
+        timer = duration;
         startTimer(duration, timer);
 });
 
-    // pause.click(function() {
-    //     pause.addClass("hidden");
-    //     play.removeClass("hidden");
-    //     $('.btn').removeClass("hidden");
-    //     pauseTimer();
-    // });
-  $stop.click(function() {
-        $('.btn').removeClass("hidden");
+    pause.click(function() {
+        pause.addClass("hidden");
+        play.removeClass("hidden");
         clearInterval(time);
+        seconds = seconds;
+        session_minutes = session_minutes;
+     });
+  $stop.click(function() {
+       
+        clearInterval(time);
+        pause.addClass("hidden");
+        play.removeClass("hidden");
+         $('.btn').removeClass("hidden");
+        session_minutes = 25;
+        seconds = 0;
+        display.text(session_minutes + ":0" + seconds);
+        
     });
 
 
