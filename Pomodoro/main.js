@@ -1,6 +1,6 @@
 // var Pomodoro = {
 // 	session_time: 25,
-// 	break_time: 5, 
+// 	break_time: 5,
 // 	inSession: false,
 // 	inBreak: false,
 // 	startTimer: function(time){
@@ -13,24 +13,34 @@
 // 	resetTimer: function(time){
 // 		console.log("Timer reset");
 // 	}
-
 // };
-
-function Pomodoro(){
-	this.session_minutes = 25;
-	this.seconds = 0;
-	this.inSession = false;
-	this.duration = (this.minutes * 60) + this.seconds;
-	this.startTimer = function(){
-		console.log(this.duration);
-	};
-	this.pauseTimer = function(){
-		console.log("Timer paused");
-	};
-	this.resetTimer = function(){
-		console.log("Timer reset");
-	};
+function Pomodoro() {
+    this.session_minutes = 25;
+    this.session_seconds = 0;
+    this.startBreak = false;
+    this.duration = (this.session_minutes * 60) + this.session_seconds;
+    this.timer = this.duration;
+    this.startTimer = function(this.timer) {
+        var clock = this.timer;
+        var duration = this.duration;
+        setInterval(function() {
+            minutes = parseInt(clock / 60, 10);
+            seconds = parseInt(clock % 60, 10);
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+            console.log(minutes + ":" + seconds);
+            // display.text(session_minutes + ":" + seconds);
+            if (--clock < 0) {
+                clock = duration;
+                clearInterval(clock);
+            }
+        }, 1000);
+    };
+    this.pauseTimer = function() {
+        clearInterval(this.timer);
+    };
+    this.resetTimer = function() {
+        console.log("Timer reset");
+    };
 }
-
 var sessionClock = new Pomodoro();
 var breakClock = new Pomodoro();
