@@ -1,25 +1,22 @@
-var isBreakTime = false;
 
-function Pomodoro(time) {
+function Pomodoro(time, display) {
     this.minutes = time;
     this.seconds = 0;
-
     this.countdown;
+    this.display = display;
     var that = this; // private this
     this.startTimer = function() {
     		that.duration = (this.minutes * 60) + this.seconds;
     		that.timer = this.duration;
-    		console.log(that.timer);
         that.countdown = setInterval(function() {
             var min = parseInt(that.timer / 60, 10);
             var sec = parseInt(that.timer % 60, 10);
 
             sec = sec < 10 ? "0" + sec : sec;
-            display.text(min + ":" + sec);
+            that.display.text(min + ":" + sec);
 
             if (--that.timer < 0) {
                 that.timer = that.duration;
-                isBreakTime = true;
                 clearInterval(that.countdown);
             }
 
@@ -35,15 +32,16 @@ function Pomodoro(time) {
     };
 }
 
-// intialize two new Pomodoros
-var sessionClock = new Pomodoro(1);
-var breakClock = new Pomodoro(5);
-// breakClock set to five minutes
-breakClock.minutes = 5;
-
 // Display session minutes
 var display = $('.session-time');
 var break_timer = $('.break-time');
+
+// intialize two new Pomodoros
+var sessionClock = new Pomodoro(1, display);
+var breakClock = new Pomodoro(5, break_timer);
+// breakClock set to five minutes
+
+
 display.html(sessionClock.minutes + ":00");
 $('.break-time').html(breakClock.minutes + ":00");
 
@@ -99,7 +97,7 @@ $('.break-plus').click(function(){
 
 // if play is clicked, start sessionClock
 play.click(function(){
-	pause.removeClass("hidden");
+	// pause.removeClass("hidden");
 	// play.addClass("hidden"); //TODO
 	$('.btn').addClass("hidden");
 	sessionClock.startTimer();
@@ -117,6 +115,10 @@ reset.click(function(){
 	$('.btn').removeClass("hidden");
 });
 
-
-// if isBreakTime is true 
-	// start BreakTimer
+// if display timer is
+if(display.text() === "0:00"){
+	// start breakClock
+	$("body").css("background-color", "#008040");
+	$(".whiten").css("color", "#008040");
+	breakClock.startTimer();
+}
