@@ -1,46 +1,61 @@
-// var Pomodoro = {
-// 	session_time: 25,
-// 	break_time: 5,
-// 	inSession: false,
-// 	inBreak: false,
-// 	startTimer: function(time){
-// 		console.log(time);
-// 		console.log("Timer started");
-// 	},
-// 	pauseTimer: function(time){
-// 		console.log("Timer paused");
-// 	},
-// 	resetTimer: function(time){
-// 		console.log("Timer reset");
-// 	}
-// };
-function Pomodoro() {
-    this.session_minutes = 25;
-    this.session_seconds = 0;
-    this.startBreak = false;
-    this.duration = (this.session_minutes * 60) + this.session_seconds;
-    this.timer = this.duration;
-    this.startTimer = function(this.timer) {
-        var clock = this.timer;
-        var duration = this.duration;
-        setInterval(function() {
-            minutes = parseInt(clock / 60, 10);
-            seconds = parseInt(clock % 60, 10);
-            seconds = seconds < 10 ? "0" + seconds : seconds;
-            console.log(minutes + ":" + seconds);
-            // display.text(session_minutes + ":" + seconds);
-            if (--clock < 0) {
-                clock = duration;
-                clearInterval(clock);
-            }
-        }, 1000);
-    };
-    this.pauseTimer = function() {
-        clearInterval(this.timer);
-    };
-    this.resetTimer = function() {
-        console.log("Timer reset");
-    };
-}
-var sessionClock = new Pomodoro();
-var breakClock = new Pomodoro();
+$(document).ready(function() {
+    function Pomodoro() {
+        this.minutes = 1;
+        this.seconds = 0;
+        this.startBreak = false;
+        this.duration = (this.session_min * 60) + this.seconds;
+        this.timer = this.duration;
+        this.countdown;
+        var that = this; // private this
+        this.startTimer = function() {
+            that.countdown = setInterval(function() {
+                var min = parseInt(that.timer / 60, 10);
+                var sec = parseInt(that.timer % 60, 10);
+
+                sec = sec < 10 ? "0" + sec : sec;
+                console.log(min + ":" + sec);
+
+                // display.text(session_min + ":" + sec);
+                if (--that.timer < 0) {
+                    that.timer = that.duration;
+                    that.startBreak = true;
+                    clearInterval(that.timer);
+                }
+
+            }, 1000);
+        };
+        this.pauseTimer = function() {
+            clearInterval(that.countdown);
+        };
+        this.resetTimer = function() {
+            clearInterval(that.countdown);
+        };
+    }
+
+    // intialize two new Pomodoros
+    var sessionClock = new Pomodoro();
+    var breakClock = new Pomodoro();
+    breakClock.minutes = 5;
+
+
+    var display = $('.session-time');
+    display.html(sessionClock.session_min + ":00");
+
+
+    $('.session-minus').click(function() {
+        sessionClock.session_min--;
+        if (sessionClock.session_min < 1) {
+            sessionClock.session_min = 1;
+        }
+        display.html(sessionClock.session_min + ":00");
+    });
+    $('.session-plus').click(function() {
+        sessionClock.session_min++;
+        display.html(sessionClock.session_min + ":00");
+
+    });
+
+
+
+
+});
