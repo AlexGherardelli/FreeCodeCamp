@@ -3,11 +3,13 @@ var isBreakTime = false;
 function Pomodoro(time) {
     this.minutes = time;
     this.seconds = 0;
+
     this.countdown;
     var that = this; // private this
     this.startTimer = function() {
     		that.duration = (this.minutes * 60) + this.seconds;
     		that.timer = this.duration;
+    		console.log(that.timer);
         that.countdown = setInterval(function() {
             var min = parseInt(that.timer / 60, 10);
             var sec = parseInt(that.timer % 60, 10);
@@ -15,7 +17,6 @@ function Pomodoro(time) {
             sec = sec < 10 ? "0" + sec : sec;
             display.text(min + ":" + sec);
 
-            // display.text(minutes + ":" + sec);
             if (--that.timer < 0) {
                 that.timer = that.duration;
                 isBreakTime = true;
@@ -37,7 +38,8 @@ function Pomodoro(time) {
 // intialize two new Pomodoros
 var sessionClock = new Pomodoro(1);
 var breakClock = new Pomodoro(5);
-
+// breakClock set to five minutes
+breakClock.minutes = 5;
 
 // Display session minutes
 var display = $('.session-time');
@@ -94,22 +96,18 @@ $('.break-plus').click(function(){
 
 });
 
+
 // if play is clicked, start sessionClock
 play.click(function(){
 	pause.removeClass("hidden");
-	play.addClass("hidden");
+	// play.addClass("hidden"); //TODO
 	$('.btn').addClass("hidden");
 	sessionClock.startTimer();
 });
 
+// TODO if pause is clicked, stop sessionClock
 
-// if pause is clicked, stop sessionClock
-pause.click(function(){
-	sessionClock.pauseTimer();
-	play.removeClass("hidden");
-	pause.addClass("hidden");
 
-});
 // if reset button is clicked, reset sessionClock and breakClock
 reset.click(function(){
 	sessionClock.resetTimer();
