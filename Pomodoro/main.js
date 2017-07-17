@@ -22,9 +22,6 @@ function Pomodoro(time, display) {
             if (--that.timer < 0) {
                 that.timer = that.duration;
                 clearInterval(that.countdown);
-
-
-
             }
 
         }, 1000);
@@ -45,8 +42,8 @@ var display = $('.session-time');
 var break_timer = $('.break-time');
 
 // intialize two new Pomodoros
-var sessionClock = new Pomodoro(1, display);
-var breakClock = new Pomodoro(1, break_timer);
+var sessionClock = new Pomodoro(25, display);
+var breakClock = new Pomodoro(5, break_timer);
 // breakClock set to five minutes
 
 
