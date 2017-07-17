@@ -1,3 +1,5 @@
+$(document).ready(function(){
+
 var startBreak = false;
 var b_time;
 
@@ -27,13 +29,14 @@ function Pomodoro(time, display) {
 
         }, 1000);
     };
-    this.pauseTimer = function() {
-        clearInterval(that.countdown);
-    };
+    // this.pauseTimer = function() {
+    //     clearInterval(that.countdown);
+    // };
     this.resetTimer = function() {
-        clearInterval(that.countdown);
-        this.seconds = 0;
-        display.text(this.minutes + ":00");
+        // clearInterval(that.countdown);
+        // this.seconds = 0;
+        // display.text(this.minutes + ":00");
+        location.reload(true);
     };
 }
 
@@ -143,3 +146,6 @@ function isBreakTime() {
         breakClock.startTimer();
     }
 }
+
+});
+
