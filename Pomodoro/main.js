@@ -1,9 +1,11 @@
+$(document).ready(function(){
+
 var startBreak = false;
 var b_time;
 
 function Pomodoro(time, display) {
     this.minutes = time;
-    this.seconds = 5;
+    this.seconds = 0;
     this.countdown;
     this.display = display;
     var that = this; // private this
@@ -20,18 +22,18 @@ function Pomodoro(time, display) {
             if (--that.timer < 0) {
                 that.timer = that.duration;
                 clearInterval(that.countdown);
-
             }
 
         }, 1000);
     };
-    this.pauseTimer = function() {
-        clearInterval(that.countdown);
-    };
+    // this.pauseTimer = function() {
+    //     clearInterval(that.countdown);
+    // };
     this.resetTimer = function() {
-        clearInterval(that.countdown);
-        this.seconds = 0;
-        display.text(this.minutes + ":00");
+        // clearInterval(that.countdown);
+        // this.seconds = 0;
+        // display.text(this.minutes + ":00");
+        location.reload(true);
     };
 }
 
@@ -40,8 +42,8 @@ var display = $('.session-time');
 var break_timer = $('.break-time');
 
 // intialize two new Pomodoros
-var sessionClock = new Pomodoro(0, display);
-var breakClock = new Pomodoro(0, break_timer);
+var sessionClock = new Pomodoro(25, display);
+var breakClock = new Pomodoro(5, break_timer);
 // breakClock set to five minutes
 
 
@@ -141,3 +143,6 @@ function isBreakTime() {
         breakClock.startTimer();
     }
 }
+
+});
+
