@@ -1,0 +1,27 @@
+html, body{
+width: 100%;
+height: 100%;
+padding: 0;
+margin: 0;
+font-family: "Chelsea Market", cursive;
+background-color: #ffa07a;
+color: white;
+font-size: 21px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.square{
+	width: 100px;
+	height: 100px;
+	background: white;
+	border-radius: 5%;
+	margin: 5px;
+	text-align: center;
+	color: #ffa07a;
+}
+
+player-1-icon:  "\f00d";
+player-2-icon:  "\f10c";
