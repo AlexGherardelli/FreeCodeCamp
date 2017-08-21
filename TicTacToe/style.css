@@ -30,4 +30,12 @@ td{
 	border-collapse: collapse;
 }
 
-
+footer{
+	position: relative;
+	top: 25%;
+	font-size: 12px;
+}
+footer a{
+	color: white;
+	text-decoration: none;
+}
