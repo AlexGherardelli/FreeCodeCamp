@@ -1,5 +1,11 @@
 $(document).ready(function() {
     // START HERE
+    var Player = {
+        name: '',
+        sign: '',
+        thirdVariableIDontRemember: ''
+    };
+
     var user = "X";
     var computer = "O";
     var currentPlayer = user;
@@ -32,7 +38,7 @@ $(document).ready(function() {
             setTimeout(function() {
                 board.text("Game over");
                 window.location.reload();
-            }, 1500)
+            }, 1500);
         }
         if (moves === 9)
             clear();
