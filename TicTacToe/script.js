@@ -1,104 +1,89 @@
-(function () {
-    // START HERE
-    var Player = {
-        name: '',
-        sign: '',
-        thirdVariableIDontRemember: ''
-    };
+var Player = {
+    name: '',
+    sign: '',
+    thirdVariableIDontRemember: ''
+};
 
-    var user = "X";
-    var computer = "O";
-    var currentPlayer = user;
-    var moves = 1;
-    var board = document.querySelector(".board");
-    var one = document.getElementById('1');
-    var two = document.getElementById('2');
-    var three = document.getElementById('3');
-    var four = document.getElementById('4');
-    var five = document.getElementById('5');
-    var six = document.getElementById('6');
-    var seven = document.getElementById('7');
-    var eight = document.getElementById('8');
-    var nine = document.getElementById('9');
-    window.one = one;
-    window.two = two;
-    window.three = three;
+var user = "X";
+var computer = "O";
+var currentPlayer = user;
 
-    var avail = [one, two, three, four, five, six, seven, eight, nine];
-    window.avail = avail;
+var moves = 0;
 
-    //Switch between players
-    function togglePlayer() {
-        currentPlayer === user ? currentPlayer = computer : currentPlayer = user;
-    }
+var board = document.querySelector(".board");
+// var one = document.getElementById('1');
+// var two = document.getElementById('2');
+// var three = document.getElementById('3');
+// var four = document.getElementById('4');
+// var five = document.getElementById('5');
+// var six = document.getElementById('6');
+// var seven = document.getElementById('7');
+// var eight = document.getElementById('8');
+// var nine = document.getElementById('9');
 
-    // Check if move is valid
-    /*
-    Describe here what this function is supposed to do
-    */
-    function isvalidMove(e) {
-        return !e.classList.contains('clicked');
-    }
+var boardStatus = new Array(3 * 2 + 2);
+boardStatus.fill(null);
 
-    // Check if game is over
-    /*
-    Describe here what this function is supposed to do
-    */
-    function gameOver() {
-<<<<<<< HEAD
-        function clear() {
-            setTimeout(function() {
-                board.text("Game over");
-                window.location.reload();
-            }, 1500);
-        }
-=======
->>>>>>> 7ffed6f886cb93d8e1461739d487662f669b42d1
-        if (moves === 9)
-            clear();
-        if(one.classList.contains('clicked') && two.classList.contains('clicked') && three.classList.contains('clicked') && one.innerText === two.innerText && two.innerText === three.innerText){
-            console.log("winning position");
-            // clear();
-        }
-    }
+//Switch between players
+function togglePlayer() {
+    currentPlayer === user ? currentPlayer = computer : currentPlayer = user;
+}
 
-    // Clear window board and declare Game Over
-    function clear() {
-        setTimeout(function() {
-            board.text("Game over");
-            window.location.reload();
-        }, 1500)
-    }
+// Check if move is valid
+/*
+Describe here what this function is supposed to do
+*/
+function isvalidMove(e) {
+    return !e.classList.contains('clicked');
+}
 
-    function computerPlayer(){
-        for(var i in avail){ 
-            console.log(avail[i].innerText)
-        };
-    }
+// Clears the board
+function clear() {
+    board.innerHTML = "<h1>Game over</h1>";
+    setTimeout(function() {
+        window.location.reload();
+    }, 2000);
+}
 
-    // Check who won
-    function winnerIs(){
-        pass;
-    }
+// Check draw
+function draw() {
+    console.log(moves);
+    if (moves === 9)
+        clear();
+}
 
 
-    document.addEventListener("DOMContentLoaded", function(event) {
-        console.log("DOM fully loaded and parsed");
-    });
-    // Main game
-    document.addEventListener('click', function(e) {
-        gameOver();
+// function computerPlayer() {
+//     for (var i in avail) {
+//         console.log(avail[i].innerText)
+//     };
+// }
+
+// Check who won
+function winnerIs() {
+    pass;
+}
+
+
+// Main game
+document.addEventListener('click', function(e) {
+    if (e !== null) {
         var target = document.getElementById(e.target.id);
         var validMove = isvalidMove(target);
         if (validMove) {
             target.innerText = currentPlayer;
+            if (currentPlayer === "X") {
+                boardStatus[parseInt(target.id) - 1] = 1;
+            } else {
+                boardStatus[parseInt(target.id) - 1] = 2;
+            }
+            console.log(boardStatus);
             target.classList.add('clicked')
             moves += 1;
             togglePlayer();
         }
+        draw();
         console.log("Currently playing as " + currentPlayer);
-    });
+    }
 
-})();
-
-
+});
