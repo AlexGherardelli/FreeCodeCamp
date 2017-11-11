@@ -53,11 +53,10 @@ function draw() {
 }
 
 
-// function computerPlayer() {
-//     for (var i in avail) {
-//         console.log(avail[i].innerText)
-//     };
-// }
+function computerPlayer() {
+    var avail = boardStatus.reduce(function(a, v, i) { if (v === null) a.push(i); return a; }, []);
+    var rand = avail[Math.floor(Math.random() * avail.length)];
+}
 
 // Check who won
 function winnerIs() {
@@ -68,13 +67,17 @@ function winnerIs() {
 // Main game
 document.addEventListener('click', function(e) {
     if (e !== null) {
+        console.log(e);
         var target = document.getElementById(e.target.id);
         var validMove = isvalidMove(target);
+
         if (validMove) {
             target.innerText = currentPlayer;
+            console.log(target);
             if (currentPlayer === "X") {
                 boardStatus[parseInt(target.id) - 1] = 1;
             } else {
+                computerPlayer(target);
                 boardStatus[parseInt(target.id) - 1] = 2;
             }
             console.log(boardStatus);
@@ -83,7 +86,6 @@ document.addEventListener('click', function(e) {
             togglePlayer();
         }
         draw();
-        console.log("Currently playing as " + currentPlayer);
     }
 
 });
