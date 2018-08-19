@@ -1,0 +1,146 @@
+/*GENERAL*/
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: "Montserrat", Helvetica, sans-serif;
+  font-size: 16px; }
+
+/*HELPERS & TYPOGRAPHY*/
+.vertically-center-text {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0 auto; }
+
+section, header {
+  min-height: 100%; }
+
+h1, h2, h3, h4, h5, h6, button, a {
+  font-family: "Montserrat", Helvetica, sans-serif;
+  text-transform: uppercase; }
+
+h1 {
+  font-size: 6rem;
+  text-transform: lowercase; }
+
+h2 {
+  font-size: 2rem; }
+
+h3 {
+  font-size: 1.375rem; }
+
+h4 {
+  font-size: 1.125rem; }
+
+h5 {
+  font-size: 1rem; }
+
+h6 {
+  font-size: 0.875rem; }
+
+p {
+  font-family: "Source Sans Pro", serif;
+  font-size: 1.125rem;
+  font-weight: 200;
+  line-height: 1.5; }
+
+/*COMPONTENTS*/
+.btn {
+  width: 250px;
+  height: 60px;
+  margin: 0px 20px 40px 20px;
+  font-size: 1.2rem;
+  background: transparent;
+  border: 3px #702e5f solid;
+  color: #702e5f;
+  /*font-weight: bold;*/ }
+
+.btn:hover {
+  color: white;
+  background: #702e5f;
+  border: 3px #702e5f solid; }
+
+/*SECTIONS*/
+.navbar a {
+  color: white; }
+
+.main {
+  /*font-size: 8vw;*/
+  font-family: "Montserrat", Helvetica, sans-serif;
+  font-weight: bold;
+  color: white; }
+
+.header {
+  height: 100%;
+  width: 100%;
+  display: table;
+  position: relative;
+  background: #ffc14d;
+  padding: 20px 0; }
+
+.paragraphs {
+  font-size: 2rem;
+  margin: 30px 0;
+  color: white; }
+
+a .fa-angle-double-down {
+  color: white; }
+
+.title {
+  background: #702e5f;
+  color: white; }
+
+.about-element {
+  color: white; }
+
+.portfolio {
+  background: white;
+  color: #ffc14d;
+  min-height: auto;
+  margin: 30px 0 30px 0; }
+
+.portfolio img {
+  margin: 15px; }
+
+.thumbnail {
+  border: 5px #702e5f solid;
+  padding: 0; }
+
+#projects {
+  color: #702e5f; }
+
+.description {
+  color: #702e5f;
+  font-weight: bold; }
+
+.contacts {
+  min-height: auto;
+  padding: 80px 0;
+  background: #ffc14d; }
+
+.contact-me {
+  color: white; }
+
+.fa-4x {
+  margin: 0 20px; }
+
+.social a {
+  color: white; }
+
+.social a:hover {
+  color: #702e5f; }
+
+footer {
+  background: #333333;
+  padding: 20px 0; }
+
+footer p {
+  color: white; }
+
+.icons .fa {
+  padding: 0 10px;
+  color: white; }
+
+/*MEDIA QUERIES*/
+
+/*# sourceMappingURL=style.css.map */

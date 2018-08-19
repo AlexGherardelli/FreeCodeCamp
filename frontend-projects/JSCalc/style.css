@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,400');
+
+*{
+	box-sizing: border-box;
+}
+
+html, body{
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	background-color:#376996;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 400;
+	font-size: 26px;
+	text-align: center;
+	color: #376996;
+/*#4A8FE7; United Nations blue*/
+}
+button{
+    text-align: center;
+    cursor: default;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: white;
+    box-sizing: border-box;
+    padding: 0;
+    border-width: 0;
+  }
+
+button:focus, button:active{
+  outline: 0px;
+
+}
+
+.calc{
+	height: 500px;
+	width: 320px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.screen{
+	height: 15%;
+	width: 90%;
+	background: #264969;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	border-radius: 50px;
+	margin: 20px;
+	color: white;
+	display: flex;
+	justify-content: flex-end;
+	align-content: center;
+}
+.result{
+	padding: 0px 30px 10px 30px;
+}
+.buttons{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	height:85%;
+	width: 90%;
+}
+.key{
+	-moz-border-radius: 50%;
+	-webkit-border-radius:50%;
+	background: white;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	border-radius: 50%;
+	height: 15%;
+	margin: 5px;
+	width: 20%;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	transition: background-color .2s;
+}
+/*.key:hover, .key:focus {
+  background-color: #b9cada;
+  color: white;
+}*/
+.key:active{
+	box-shadow: 0px 1px 1px rgba(0,0,0,0.20);
+}
+.pressed{
+	box-shadow: 0px 1px 1px rgba(0,0,0,0.20);
+}
+
+.operators{
+	background: #7396b5;
+	color: white;
+}
+.double{
+	width: 40%;
+  border-radius: 5%;
+}
+.double-height{
+	height: 30%;
+	border-radius: 5%;
+}
+#sign{
+	visibility: hidden;
+}

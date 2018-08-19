@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+    <link rel="stylesheet" href="style.css">
+    <title>Simon's Game</title>
+</head>
+
+<body>
+    <div class="strict">
+        <label class="toggle" for="toggle_strict"> 
+            <span class="strict_label">
+             Strict
+            </span>
+        <input id="toggle_strict" class="toggle__input" type="checkbox" />
+        <div class="toggle__slider"></div>
+        </label>
+
+    </div>
+    <div> Round: <span class="display">0</span></div>
+    <div class="app">
+        <button class="btn animated" id="blue"></button>
+        <button class="btn animated" id="red"></button>
+        <button class="btn animated" id="yellow"></button>
+        <button class="btn animated" id="green"> </button>
+    </div>
+    <footer>Built with
+        <3 by <a href="https://github.com/alexgherardelli">Gherds</a>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+
+</html>

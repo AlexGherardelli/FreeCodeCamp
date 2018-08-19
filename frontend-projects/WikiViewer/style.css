@@ -1,0 +1,132 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    font-size: 21px;
+    line-height: 1.6;
+    color: #fff;
+    background: #0B80A0;
+
+/*light grey: #F7F7F7*/
+}
+h1{
+  text-align: center;
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 300;
+
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+.input-box{
+    flex-direction: row;
+}
+
+.search-input{
+    font-size: 3.5rem;
+    font-weight: 700;
+/*    border-bottom: 1px solid #999;
+*/    text-align: center;
+    background: transparent;
+    color: white;
+    border-width: 0px;
+    border-style: none;
+    border-color: none;
+    border-image: none;
+}
+.search-input:focus, .search-input:active, .input-box:focus, .input-box:active {
+   border-width: 0px;
+    border-style: none;
+    border-color: none;
+    border-image: none;
+    outline: none;
+    color: white;
+}
+
+input::placeholder {
+    color: #ececec;
+}
+
+.main{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.btns{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.btn{
+    background: transparent;
+    border-radius: 5px;
+    border: 3px solid #fff;
+    color: #fff;
+    display: inline-block;
+    font-family: "Lato", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    height: 70px;
+    margin: 5px;
+    width: 100px;
+}
+.btn:hover, .btn:focus, .btn:active{
+    color: #0B80A0;
+    background: #fff;
+    opacity: .9;
+}
+
+.wikipedia{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.entry{
+    width: 300px;
+    padding: 20px;
+    box-shadow: 2px 2px 9px 0px #555;
+    margin: 10px;
+    background: rgba(19, 175, 217, 0.96);
+}
+
+footer{
+    height: 20%;
+    font-size: .7rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+/*Tablets*/
+@media screen and (max-width: 768px){
+    .entry{
+        width: 250px;
+    }
+}
+
+/*Small screens*/
+@media screen and (max-width: 400px) {
+    h1{
+        font-size: 2.5rem;
+    }
+    .search-input{
+        font-size: 2.2rem;
+    }
+    .btn{
+        height: 50px;
+    }
+    .fa-3x{
+        font-size: 1.5rem;
+    }
+}
